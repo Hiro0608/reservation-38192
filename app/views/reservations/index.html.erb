@@ -1,1 +1,8 @@
-<%= render 'shared/flash_messages' %>
+<%= form_with(model: @event, local: true) do |form| %>
+  <%= date.day %>
+  <% events.each do |event| %>
+    <div>
+      <%= event.title %>
+    </div>
+  <% end %>
+<% end %>

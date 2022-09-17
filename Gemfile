@@ -59,4 +59,6 @@ gem 'rails-i18n', '~> 6.0'
 gem 'devise-i18n'
 # Bootstrap
 gem 'devise-bootstrap-views', '~> 1.0'
+# カレンダー
+gem 'simple_calendar', '~> 2.0' 
 gem 'pry-rails'

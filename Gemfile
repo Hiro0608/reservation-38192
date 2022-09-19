@@ -60,5 +60,9 @@ gem 'devise-i18n'
 # Bootstrap
 gem 'devise-bootstrap-views', '~> 1.0'
 # カレンダー
-gem 'simple_calendar', '~> 2.0' 
+gem 'simple_calendar', '~> 2.0'
+# 画像投稿
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'
+gem 'active_hash'
 gem 'pry-rails'

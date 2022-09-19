@@ -1,4 +1,4 @@
-<%# ヘッダー 　%>
+<%# ヘッダー %>
 <header>
   <div class="alert alert-info" role="alert">
     <nav class="navbar navbar-expand navbar-light">
@@ -21,6 +21,9 @@
             </li>
             <li class="nav-item active">
               <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, class: 'nav-link', method: :post %>
+            </li>
+            <li class="nav-item active">
+              <%= link_to "施設を登録する", new_user_registration_path, class: 'nav-link' %>
             </li>
           <% end %>
         </ul>

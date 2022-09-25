@@ -1,0 +1,49 @@
+/* //下部広告部分 */
+
+.footer {
+  width: 100vw;
+  padding: 2vh 0;
+  background-color: #ccf4fc;
+  color: rgb(9, 10, 9);
+  text-align: center;
+}
+
+.footer-details {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-active {
+  width: 20vh;
+  vertical-align: bottom;
+}
+
+.footer>p {
+  font-size: 20px;
+}
+
+
+/* //SNS部分 */
+
+.twitter-link {
+  color: #FFF;
+  font-size: 22px;
+  line-height: 30px;
+  padding-right: 100px;
+}
+
+.instagram-link {
+  color: #FFF;
+  font-size: 22px;
+  line-height: 30px;
+}
+
+.facebook-link{
+  color: #FFF;
+  font-size: 22px;
+  line-height: 30px;
+  padding-left: 100px;
+}
+/* //SNS部分 */
+

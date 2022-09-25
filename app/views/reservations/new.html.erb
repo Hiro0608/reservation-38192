@@ -1,12 +1,190 @@
-<div class="contents row">
-  <div class="container">
-    <h3>投稿する</h3>
-    <%= form_with(model: @reservation, local: true) do |form| %>
-      <%= form.text_field :name, placeholder: "Nickname" %>
-      <%= form.text_field :image, placeholder: "Image Url" %>
-      <%= form.text_area :text, placeholder: "text", rows: "10" %>
-      <%= form.submit "SEND" %>
+<%= render "shared/header" %>
+<div class="items-sell-contents">
+  
+  <div class="items-sell-main">
+    <h2 class="items-sell-title">宿泊の情報を登録</h2>
+    <%= form_with model: @reservation, local: true do |f| %>
+
+    <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
+    <%#  render 'shared/error_messages', model: f.object %>
+    <%# //インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
+  
+    <%# 宿泊画像 %>
+    <div class="img-upload">
+      <div class="weight-bold-text">
+        宿泊画像
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="click-upload">
+        <p>下記をクリックしてファイルをアップロード</p>
+        <%= f.file_field :image, multiple: true %><br>
+      </div>
+    </div>
+    <%# /宿泊画像 %>
+    <%# 宿泊名と宿泊先の説明 %>
+    <div class="new-items">
+      <div class="weight-bold-text">
+        宿泊名
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :name, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
+      <div class="items-explain">
+        <div class="weight-bold-text">
+          宿泊の説明
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :price, class:"items-text", id:"item-info", placeholder:"商品の説明（必須 1,000文字まで）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。" ,rows:"7" ,maxlength:"1000" %>
+      </div>
+    </div>
+    <%# /宿泊名と宿泊先の説明 %>
+    <%# アクティブの詳細 %>
+    <div class="weight-bold-text-sports">体験できるアクティブスポーツ</div>
+    <span class="indispensable-b">任意</span>
+    <span class="indispensable-c">項目以外で体験可能の場合はその他を選択すること</span>
+    <div class="category-detail">
+      <div class="weight-bold-text-active">
+        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+      </div>        
+      <div class="weight-bold-text-active">
+        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+      </div>
+      <div class="weight-bold-text-active">
+        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+      </div> 
+    </div>
+    <%# /アクティブの詳細 %>
+    <%# 設備の詳細 %>
+    <div class="weight-bold-text-facility">利用可能な設備</div>
+    <span class="indispensable-b">必須</span>
+    <span class="indispensable-c">※最低１つを選択すること</span>
+    <div class="status-detail">
+      <div class="weight-bold-text">
+        <%= f.collection_select(:status_id, Status.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+      </div> 
+      <div class="weight-bold-text">
+        <%= f.collection_select(:status_id, Status.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+      </div>
+      <div class="weight-bold-text">
+        <%= f.collection_select(:status_id, Status.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+      </div>
+      <div class="weight-bold-text">
+        <%= f.collection_select(:status_id, Status.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+      </div>
+      <div class="weight-bold-text">
+        <%= f.collection_select(:status_id, Status.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+      </div>
+      <div class="weight-bold-text">
+        <%= f.collection_select(:status_id, Status.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+      </div>
+      <div class="weight-bold-text">
+        <%= f.collection_select(:status_id, Status.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+      </div> 
+      <div class="weight-bold-text">
+        <%= f.collection_select(:status_id, Status.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+      </div>
+      <div class="weight-bold-text">
+        <%= f.collection_select(:status_id, Status.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+      </div>
+      <div class="weight-bold-text">
+        <%= f.collection_select(:status_id, Status.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+      </div>
+      <div class="weight-bold-text">
+        <%= f.collection_select(:status_id, Status.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+      </div>
+      <div class="weight-bold-text">
+        <%= f.collection_select(:status_id, Status.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+      </div>
+    </div>
+    <%# /設備の詳細 %>
+
+
+    <%# 宿泊住所の入力 %>
+    <div class='transaction-contents'>
+      <div class='transaction-main'>
+        <h1 class='transaction-title-text'>宿泊住所の入力</h1>
+        <div class="form-group">
+          <div class='form-text-wrap'>
+            <label class="form-text">郵便番号</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_field :post_code, class:"input-default", id:"postal-code", placeholder:"例）123-4567", maxlength:"8" %>
+        </div>
+        <div class="form-group">
+          <div class='form-text-wrap'>
+            <label class="form-text">都道府県</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.collection_select(:address_id, Address.all, :id, :name, {}, {class:"select-box", id:"item-prefecture"}) %>
+        </div>
+        <div class="form-group">
+          <div class='form-text-wrap'>
+            <label class="form-text">市区町村</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_field :city, class:"input-default", id:"city", placeholder:"例）横浜市緑区"%>
+        </div>
+        <div class="form-group">
+          <div class='form-text-wrap'>
+            <label class="form-text">番地</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_field :house_number, class:"input-default", id:"addresses", placeholder:"例）青山1-1-1"%>
+        </div>
+        <div class="form-group">
+          <div class='form-text-wrap'>
+            <label class="form-text">建物名</label>
+            <span class="form-any">任意</span>
+          </div>
+          <%= f.text_field :building_name, class:"input-default", id:"building", placeholder:"例）柳ビル103"%>
+        </div>
+        <div class="form-group">
+          <div class='form-text-wrap'>
+            <label class="form-text">電話番号</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_field :phone_number, class:"input-default", id:"phone-number", placeholder:"例）09012345678",maxlength:"11"%>
+        </div>
+      </div>
+    </div>
+    <%# /宿泊住所の入力 %>
+
+    <%# 宿泊料金 %>
+    <div class="sell-price">
+      <div class="weight-bold-text question-text">
+        <span>販売価格<br>(¥3000〜9,999,999)</span>
+        <a class="question" href="#">?</a>
+      </div>
+      <div>
+        <div class="price-content">
+          <div class="price-text">
+            <span>価格</span>
+            <span class="indispensable">必須</span>
+          </div>
+          <span class="sell-yen">¥</span>
+          <%= f.text_field :price, class:"price-input", id:"item-price", placeholder:"例）3000" %>
+        </div>
+        <div class="price-content">
+          <span>販売手数料 (10%)</span>
+            <span id='add-tax-price'></span>円
+        </div>
+        <div class="price-content">
+          <span>販売利益</span>
+            <span id='profit'></span>円
+        </div>
+      </div>
+    </div>
+    <%# /宿泊料金 %>
+
+
+    <%# 下部ボタン %>
+    <div class="sell-btn-contents">
+      <%= f.submit "SEND" ,class:"sell-btn" %>
+      <%=link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+    <%# /下部ボタン %>
     <% end %>
   </div>
 </div>
+<%= render "shared/footer" %>
+
 

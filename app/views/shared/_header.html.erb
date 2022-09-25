@@ -1,11 +1,19 @@
 <%# ヘッダー %>
 <header>
-  <div class="alert alert-info" role="alert">
+  <div class="header">
     <nav class="navbar navbar-expand navbar-light">
-      <%= link_to "Active Travel", root_path, class: 'navbar-brand' %>
+      <%= link_to "©︎Active Travel", root_path, class: 'navbar-brand' %>
       <div id="Navber">
         <ul class="navbar-nav">
           <% if user_signed_in? %>
+
+            <%# if user_signed_in? %>
+            <%#div class='nav'>    
+            <li><%= link_to current_user.nickname, "#", class: "user-nickname"  %></li>
+
+            <li class="nav-item active">
+              <%= link_to '宿泊施設を登録する', new_reservation_path, class: 'nav-link' %>
+            </li>
             <li class="nav-item active">
               <%= link_to 'アカウント編集', edit_user_registration_path, class: 'nav-link' %>
             </li>
@@ -20,10 +28,10 @@
               <%= link_to "ログイン", new_user_session_path, class: 'nav-link' %>
             </li>
             <li class="nav-item active">
-              <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, class: 'nav-link', method: :post %>
+              <%= link_to "宿泊施設を登録する", new_user_registration_path, class: 'nav-link' %>
             </li>
             <li class="nav-item active">
-              <%= link_to "施設を登録する", new_user_registration_path, class: 'nav-link' %>
+              <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, class: 'nav-link', method: :post %>
             </li>
           <% end %>
         </ul>

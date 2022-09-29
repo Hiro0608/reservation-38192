@@ -1,6 +1,5 @@
 class ReservationsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
     @reservations = Reservation.all
@@ -35,8 +34,7 @@ class ReservationsController < ApplicationController
 
   private
   def reservation_params
-    params.require(:reservation).permit(
-      :image, :name, :price, :introduction, :category_id, :status_id, :address).merge(user_id: current_user.id)
+    params.require(:reservation).permit(:image, :name, :price, :introduction, :category_id, :status_id, :address_id).merge(user_id: current_user.id)
   end
 
 end

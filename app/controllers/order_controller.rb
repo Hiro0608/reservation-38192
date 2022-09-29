@@ -20,7 +20,7 @@ before_action :non_purchased_reservation, only: [:index, :create]
   private
 
   def order_params
-    params.require(:order_form).permit(:post_code, :address, :city, :house_number, :building_name, :phone_number).merge(user_id: current_user.id, reservation_id: params[:reservation_id], token: params[:token])
+    params.require(:order_form).permit(:post_code, :address_id, :city, :house_number, :building_name, :phone_number).merge(user_id: current_user.id, reservation_id: params[:reservation_id], token: params[:token])
   end
 
   def non_purchased_reservation

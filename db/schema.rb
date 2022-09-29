@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 2022_09_25_064710) do
     t.bigint "user_id"
     t.integer "category_id", null: false
     t.integer "status_id", null: false
+    t.integer "address_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_reservations_on_user_id"
